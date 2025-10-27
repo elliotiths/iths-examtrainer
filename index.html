@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ITHS ExamTrainer – Master Roadmap</title>
+<style>
+:root{
+  --bg:#f6f8fc;--ink:#1a1f2b;--muted:#5b6270;
+  --brand:#0b2a58;--brand2:#11407e;--card:#fff;
+  --rule:#e5e7eb;--shadow:0 10px 24px rgba(10,20,40,.08);--r:14px
+}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+header{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;padding:26px 0;box-shadow:var(--shadow)}
+.wrap{width:min(1100px,92%);margin:0 auto}
+h1{margin:.1rem 0 0;font-size:28px} header p{margin:.25rem 0 0;opacity:.9}
+main{margin:24px 0 28px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.card{grid-column:span 12;background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:18px 16px;box-shadow:var(--shadow)}
+@media(min-width:860px){.span6{grid-column:span 6}}
+h2{margin:.2rem 0 10px} .muted{color:var(--muted)} .small{font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;border:none;border-radius:10px;padding:9px 13px;font-weight:600;cursor:pointer}
+.btn:hover{opacity:.95;transform:translateY(-1px)} .secondary{background:#e9eefb;color:var(--brand)}
+.ghost{background:#f1f3f8;color:var(--brand)}
+.block{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:14px;margin:8px 0}
+.badge{display:inline-block;background:#eef3ff;color:var(--brand);border-radius:999px;padding:2px 8px;font-size:12px;margin-left:6px}
+.hide{display:none}
+.hr{height:1px;background:var(--rule);margin:8px 0}
+.footer{color:#6b7280;text-align:center;padding:10px}
+.q{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:14px;margin:10px 0}
+.q h3{margin:0 0 8px} .a{display:none;color:var(--muted);margin-top:6px}
+a.toggle{color:var(--brand);text-decoration:none;font-weight:600}
+.kpi{display:inline-block;border:1px solid var(--rule);border-radius:999px;padding:3px 8px;margin-right:6px;color:var(--muted)}
+.infobox{background:#f9fafb;border:1px dashed var(--rule);border-radius:10px;padding:10px;margin:8px 0}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+nav.tabs .tab{background:#eef2ff;color:#1a2b5a;border:1px solid #e5e7eb;border-radius:999px;padding:6px 10px;cursor:pointer}
+nav.tabs .tab.active{background:#1a2b5a;color:#fff}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>ITHS ExamTrainer – Master Roadmap</h1>
+  <p>Serverfri studieportal • GitHub Pages • Inkl. quiz, drills, mini-sim & källhänvisningar</p>
+</div></header>
+
+<main class="wrap">
+  <!-- NAV -->
+  <nav class="tabs">
+    <span class="tab active" data-view="dashboard">🏠 Dashboard</span>
+    <span class="tab" data-view="quiz">🧠 Quiz</span>
+    <span class="tab" data-view="exam">🎯 Exam Mode</span>
+    <span class="tab" data-view="drills">⚡ Drills</span>
+    <span class="tab" data-view="sims">🎮 Mini-sim</span>
+    <span class="tab" data-view="tips">📘 Studiemetodik</span>
+    <span class="tab" data-view="docs">📂 Kursdokument</span>
+  </nav>
+
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="grid">
+    <div class="card">
+      <h2>✅ Rekommenderad studiegång</h2>
+      <ol class="small">
+        <li>📖 Läs modulens teori (Tonnquist 2024 + PDF nedan).</li>
+        <li>🧠 Kör modulquiz – aktiv recall först, facit sen.</li>
+        <li>🎮 Gör mini-scenarier (STRIDE/XP).</li>
+        <li>🎯 Exam Mode (20–30 slumpfrågor) – simulera prov.</li>
+        <li>⚡ Lightning Drills – snabb repetition.</li>
+      </ol>
+      <div class="row"><button class="btn secondary" onclick="show('tips')">📘 Studiemetodik & tips</button></div>
+    </div>
+
+    <!-- Moduler med hänvisningar -->
+    <div class="card span6">
+      <h2>Modul 1 – Grunder & R.U.T.A</h2>
+      <div class="infobox small">
+        <b>📖 Läs modulens teori</b><br>
+        Tonnquist (2024): s. 71, 79–82, 108–110, 160–189<br>
+        📄 <a href="docs/ruta_definition.pdf" target="_blank">R.U.T.A – Projektdefinitionen</a> ·
+        <a href="docs/projektmal_effektmal.pdf" target="_blank">Projektmål & Effektmål</a> ·
+        <a href="docs/iso21500_oversikt.pdf" target="_blank">ISO 21500 – Översikt</a>
+      </div>
+      <div class="row">
+        <button class="btn" onclick="show('quiz','1')">📝 Quiz M1</button>
+        <button class="btn secondary" onclick="show('sims','stride')">🧩 STRIDE intro</button>
+      </div>
+    </div>
+
+    <div class="card span6">
+      <h2>Modul 2 – Agil utveckling</h2>
+      <div class="infobox small">
+        <b>📖 Läs modulens teori</b><br>
+        Tonnquist (2024): s. 231–247 (risk/planering) + agila delar<br>
+        📄 <a href="docs/agilitet_intro.pdf" target="_blank">Scrum & Agilitet</a> ·
+        <a href="docs/scrum_roller.pdf" target="_blank">Scrum roller/ceremonier/artefakter</a> ·
+        <a href="docs/user_stories_intro.pdf" target="_blank">User Stories Intro</a> ·
+        <a href="docs/sprint_planning.pdf" target="_blank">Sprint Planning</a> ·
+        <a href="docs/extreme_programming.pdf" target="_blank">Extreme Programming</a>
+      </div>
+      <div class="row">
+        <button class="btn" onclick="show('quiz','2')">📝 Quiz M2</button>
+        <button class="btn secondary" onclick="show('sims','xp')">🧩 Mini-sim XP</button>
+      </div>
+    </div>
+
+    <div class="card span6">
+      <h2>Modul 3 – Planering & Ekonomi</h2>
+      <div class="infobox small">
+        <b>📖 Läs modulens teori</b><br>
+        Tonnquist (2024): s. 160–189 (WBS/tid/Gantt), 172–184 (nätplan), 231–247 (risk)<br>
+        📄 <a href="docs/gantt_oversikt.pdf" target="_blank">Gantt – översikt</a> ·
+        <a href="docs/natplan_kritisklinje.pdf" target="_blank">Nätplan & Kritiska linjen</a> ·
+        <a href="docs/risk_minirisk.pdf" target="_blank">Risk & Minirisk</a> ·
+        <a href="docs/moscow.pdf" target="_blank">MoSCoW</a>
+      </div>
+      <div class="row"><button class="btn" onclick="show('quiz','3')">📝 Quiz M3</button></div>
+    </div>
+
+    <div class="card span6">
+      <h2>Modul 4 – Kvalitet & Säkerhet</h2>
+      <div class="infobox small">
+        <b>📖 Läs modulens teori</b><br>
+        Tonnquist (2024): kvalitet/acceptans/avslut + risk<br>
+        📄 <a href="docs/stride_modell.pdf" target="_blank">STRIDE – modellen</a> ·
+        <a href="docs/manuell_testning.pdf" target="_blank">Manuell testning</a> ·
+        <a href="docs/dod_acceptans.pdf" target="_blank">Definition of Done & acceptans</a>
+      </div>
+      <div class="row"><button class="btn" onclick="show('quiz','4')">📝 Quiz M4</button></div>
+    </div>
+
+    <div class="card span6">
+      <h2>Modul 5 – Kommunikation & Konsultmässighet</h2>
+      <div class="infobox small">
+        <b>📖 Läs modulens teori</b><br>
+        Tonnquist (2024): ledarskap, intressenter, kommunikation<br>
+        📄 <a href="docs/retorik_triangel.pdf" target="_blank">Retorikens triangel</a> ·
+        <a href="docs/kommunikationsplan.pdf" target="_blank">Kommunikationsplan</a> ·
+        <a href="docs/intressentanalys.pdf" target="_blank">Intressentanalys</a>
+      </div>
+      <div class="row"><button class="btn" onclick="show('quiz','5')">📝 Quiz M5</button></div>
+    </div>
+
+    <div class="card">
+      <h2>🎓 Provläge & Repetition</h2>
+      <div class="row">
+        <button class="btn" onclick="show('exam')">🎯 Exam Mode (20/30)</button>
+        <button class="btn ghost" onclick="show('drills')">⚡ Lightning Drills (30 snabba)</button>
+      </div>
+    </div>
+
+    <div class="footer small">ITHS ExamTrainer – GitHub Pages • Dela länken till hela klassen.</div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz" class="hide">
+    <div class="card"><h2 id="quizTitle">Modul – Quiz</h2>
+      <div id="quizMeta" class="muted small"></div>
+      <div id="quizHost"></div>
+      <div class="row"><button class="btn secondary" onclick="show('dashboard')">⬅️ Till dashboard</button></div>
+    </div>
+  </section>
+
+  <!-- EXAM MODE -->
+  <section id="exam" class="hide">
+    <div class="card">
+      <h2>Exam Mode</h2>
+      <div class="row">
+        <button class="btn" onclick="startExam(20)">Starta 20 frågor</button>
+        <button class="btn" onclick="startExam(30)">Starta 30 frågor</button>
+        <button class="btn secondary" onclick="show('dashboard')">⬅️ Till dashboard</button>
+      </div>
+      <div id="examLast" class="small muted" style="margin-top:6px;"></div>
+      <div id="examHost" class="block"></div>
+    </div>
+  </section>
+
+  <!-- DRILLS -->
+  <section id="drills" class="hide">
+    <div class="card">
+      <h2>Lightning Drills</h2>
+      <div id="drillHost" class="block"></div>
+      <div class="row"><button class="btn secondary" onclick="show('dashboard')">⬅️ Till dashboard</button></div>
+    </div>
+  </section>
+
+  <!-- MINI-SIMS -->
+  <section id="sims" class="hide">
+    <div class="card"><h2>Mini-scenarier</h2>
+      <div id="simHost"></div>
+      <div class="row"><button class="btn secondary" onclick="show('dashboard')">⬅️ Till dashboard</button></div>
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section id="tips" class="hide">
+    <div class="card"><h2>Studiemetodik & tips</h2>
+      <div class="block">
+        <b>Rekommenderad ordning:</b>
+        <ol class="small"><li>Läs teori (Tonnquist + PDF).</li><li>Quiz (aktiv recall).</li><li>Mini-sim (tillämpning).</li><li>Exam Mode (mål ≥80%).</li><li>Drills (kvällen innan).</li></ol>
+        <div class="hr"></div>
+        <b>Snabba hänvisningar (Tonnquist 2024):</b>
+        <ul class="small"><li>R.U.T.A/Projektdefinition: s.71, 79–82</li><li>Nuläge/SWOT: s.108–110</li><li>WBS/Tid/Gantt/Nätplan: s.160–189/172–184/178–189</li><li>Risk/Minirisk: s.231–247</li><li>Effektmätning: s.379</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCS -->
+  <section id="docs" class="hide">
+    <div class="card"><h2>Kursdokument (länkar öppnas i ny flik)</h2>
+      <p class="muted small">Ladda upp PDF:er i mappen <code>/docs</code> i GitHub (Add file → Upload files). Filnamn kan ändras i denna sida.</p>
+      <div class="block small">
+        <b>Grunder & R.U.T.A:</b>
+        <div><a target="_blank" href="docs/ruta_definition.pdf">R.U.T.A – Projektdefinitionen</a> ·
+             <a target="_blank" href="docs/projektmal_effektmal.pdf">Projektmål & Effektmål</a> ·
+             <a target="_blank" href="docs/iso21500_oversikt.pdf">ISO 21500 – Översikt</a></div>
+        <b>Agilt:</b>
+        <div><a target="_blank" href="docs/agilitet_intro.pdf">Scrum & Agilitet</a> ·
+             <a target="_blank" href="docs/scrum_roller.pdf">Scrum roller/ceremonier/artefakter</a> ·
+             <a target="_blank" href="docs/user_stories_intro.pdf">User Stories Intro</a> ·
+             <a target="_blank" href="docs/sprint_planning.pdf">Sprint Planning</a> ·
+             <a target="_blank" href="docs/extreme_programming.pdf">Extreme Programming</a></div>
+        <b>Planering/Ekonomi:</b>
+        <div><a target="_blank" href="docs/gantt_oversikt.pdf">Gantt – översikt</a> ·
+             <a target="_blank" href="docs/natplan_kritisklinje.pdf">Nätplan & Kritiska linjen</a> ·
+             <a target="_blank" href="docs/risk_minirisk.pdf">Risk & Minirisk</a> ·
+             <a target="_blank" href="docs/moscow.pdf">MoSCoW</a></div>
+        <b>Kvalitet & Säkerhet:</b>
+        <div><a target="_blank" href="docs/stride_modell.pdf">STRIDE – modellen</a> ·
+             <a target="_blank" href="docs/manuell_testning.pdf">Manuell testning</a> ·
+             <a target="_blank" href="docs/dod_acceptans.pdf">Definition of Done & acceptans</a></div>
+        <b>Kommunikation & Konsultmässighet:</b>
+        <div><a target="_blank" href="docs/retorik_triangel.pdf">Retorikens triangel</a> ·
+             <a target="_blank" href="docs/kommunikationsplan.pdf">Kommunikationsplan</a> ·
+             <a target="_blank" href="docs/intressentanalys.pdf">Intressentanalys</a></div>
+      </div>
+      <div class="row"><button class="btn secondary" onclick="show('dashboard')">⬅️ Till dashboard</button></div>
+    </div>
+  </section>
+</main>
+
+<script>
+// ---------- NAV ----------
+const views=['dashboard','quiz','exam','drills','sims','tips','docs'];
+function show(view,param){
+  views.forEach(v=>{
+    document.getElementById(v).classList.toggle('hide', v!==view);
+    document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.view===view));
+  });
+  if(view==='quiz'){renderQuiz(param||'1')}
+  if(view==='exam'){showLastExam()}
+  if(view==='drills'){renderDrills()}
+  if(view==='sims'){renderSims(param||'stride')}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ---------- FRÅGOR ----------
+const BANK={
+  "1":[
+    {q:"Vad står R.U.T.A för?",a:"Resurser (bestämd budget), Unikt (specifikt mål), Tidsatt (bestämd period), Arbetsformer (tillfällig organisation).",ref:"Tonnquist s.71, 79–82"},
+    {q:"Projektmål vs Effektmål?",a:"Projektmål = leveransens scope/tid/kvalitet. Effektmål = nyttan i verksamheten efter införande.",ref:"s.79–81"},
+    {q:"SMART – varför?",a:"Specifikt, Mätbart, Accepterat, Realistiskt, Tidsatt → bättre uppföljning och beslut.",ref:"s.81"},
+    {q:"Projekttriangeln (relation)?",a:"Tid – Resurser – Omfattning/Kvalitet. Ändras en, påverkas de andra.",ref:"s.82"},
+    {q:"Nulägesanalys/SWOT syfte?",a:"Skapa gemensam lägesbild och validera inriktning.",ref:"s.108–110"}
+  ],
+  "2":[
+    {q:"Scrumroller – vem gör vad?",a:"PO: maximerar värde & backlog. SM: faciliterar processen och tar bort hinder. Team: levererar inkrement.",ref:"scrum_roller.pdf"},
+    {q:"User Story – format?",a:"Som <roll> vill jag <behov> så att <nytta>. + acceptanskriterier.",ref:"user_stories_intro.pdf"},
+    {q:"Sprint Planning – output?",a:"Sprintmål + sprintbacklog + första dagars plan.",ref:"sprint_planning.pdf"},
+    {q:"XP – varför parprogrammering?",a:"Kvalitet, feedback, kunskapsdelning, lägre busfaktor.",ref:"extreme_programming.pdf"},
+    {q:"Daily Scrum – syfte?",a:"Synka, lyfta hinder, justera plan mot sprintmål (15 min).",ref:"agilitet_intro.pdf"}
+  ],
+  "3":[
+    {q:"WBS vs Tidsplan?",a:"WBS bryter ned leverabler/arbete. Tidsplan placerar aktiviteter i tid.",ref:"Tonnquist s.160/172"},
+    {q:"Nätplan visar…",a:"Beroenden & ordning (föregångare/efterföljare).",ref:"s.172, 184"},
+    {q:"Kritiska linjen…",a:"Längsta beroendekedjan (0 slack) som styr minsta ledtid.",ref:"s.172, 184"},
+    {q:"Gantt visar…",a:"Aktiviteter som tidsstaplar – start/slut/överlapp.",ref:"s.178–189"},
+    {q:"Minirisk – 2 parametrar?",a:"Sannolikhet och konsekvens (prio åtgärd).",ref:"s.231, 247"}
+  ],
+  "4":[
+    {q:"STRIDE – står för…",a:"Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege.",ref:"stride_modell.pdf"},
+    {q:"DoD vs Acceptanskriterier?",a:"DoD: teamets generella 'klart'. Acceptans: story-specifika villkor.",ref:"dod_acceptans.pdf"},
+    {q:"Varför kan effekt ej mätas vid avslut?",a:"Effekten uppstår efter införande/användning (post-projekt).",ref:"Tonnquist s.379"}
+  ],
+    "5":[
+    {q:"Wheelan – kärnidén?",a:"Grupp mognar genom faser (1–4); ledarskapet anpassas per fas.",ref:"wheelan.pdf (kursmaterial)"},
+    {q:"Konsultmässighet – beteenden?",a:"Tydlig kommunikation, etik, proaktivitet, lyhördhet, leveransfokus.",ref:"kommunikationsplan.pdf"},
+    {q:"Intressentanalys – varför?",a:"Förstå påverkan/inflytande och skräddarsy engagemang/kommunikation.",ref:"intressentanalys.pdf"}
+  ]
+};
+const ALL=Object.values(BANK).flat();
+
+// ---------- QUIZ RENDER ----------
+function renderQuiz(mod){
+  document.getElementById('quizTitle').textContent = `Modul ${mod==='mix'?'(mix)':mod} – Quiz`;
+  const list = (mod==='mix')?shuffle(ALL).slice(0,20):(BANK[mod]||BANK["1"]);
+  document.getElementById('quizMeta').textContent = `Frågor: ${list.length}`;
+  const host=document.getElementById('quizHost'); host.innerHTML='';
+  list.forEach((it,i)=>{
+    const d=document.createElement('div'); d.className='q';
+    d.innerHTML=`<h3>${i+1}. ${it.q}</h3>
+                 <a href="#" class="toggle">Visa svar</a>
+                 <div class="a"><p>${it.a}</p><p class="small muted">📖 ${it.ref||''}</p></div>`;
+    d.querySelector('.toggle').onclick=(e)=>{e.preventDefault();
+      const a=d.querySelector('.a'); const on=a.style.display==='block';
+      a.style.display=on?'none':'block'; e.target.textContent=on?'Visa svar':'Dölj svar';
+    };
+    host.appendChild(d);
+  });
+}
+
+// ---------- EXAM ----------
+function startExam(n){
+  const list=shuffle(ALL.slice()).slice(0,n);
+  const host=document.getElementById('examHost'); host.innerHTML='';
+  let right=0; const picks=Array(n).fill(null);
+  list.forEach((q,i)=>{
+    // gör fyra påståenden (MC) av fritextsvar: vi visar endast “Visa facit” för nu – enkel men effektiv exam-träning
+    const d=document.createElement('div'); d.className='q';
+    d.innerHTML=`<h3>${i+1}. ${q.q}</h3>
+                 <a href="#" class="toggle">Visa facit</a>
+                 <div class="a"><p>${q.a}</p><p class="small muted">📖 ${q.ref||''}</p></div>`;
+    d.querySelector('.toggle').onclick=(e)=>{e.preventDefault();
+      const a=d.querySelector('.a'); a.style.display=a.style.display==='block'?'none':'block';
+      e.target.textContent=a.style.display==='block'?'Dölj facit':'Visa facit';
+    };
+    host.appendChild(d);
+  });
+  const sum=document.createElement('div'); sum.className='block';
+  sum.innerHTML=`<div class="row"><span class="kpi">Frågor: ${n}</span>
+                 <button class="btn" onclick="saveExam(${n})">Spara som genomfört</button></div>`;
+  host.appendChild(sum);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function saveExam(total){
+  try{
+    localStorage.setItem('exam_last', JSON.stringify({ts:Date.now(), total}));
+    showLastExam();
+    alert('Exam genomfört loggat ✅');
+  }catch(e){}
+}
+function showLastExam(){
+  try{
+    const raw=localStorage.getItem('exam_last'); if(!raw) return;
+    const d=JSON.parse(raw); const dt=new Date(d.ts).toLocaleString();
+    document.getElementById('examLast').textContent=`Senaste exam-pass: ${dt} – frågor: ${d.total}`;
+  }catch(e){}
+}
+
+// ---------- DRILLS ----------
+function renderDrills(){
+  const tips=[
+    "R.U.T.A = Resurser, Unikt, Tidsatt, Arbetsformer",
+    "Projektmål (leverans) ≠ Effektmål (nytta)",
+    "Kritiska linjen = längsta beroendekedjan (0 slack)",
+    "MoSCoW = Must, Should, Could, Won’t",
+    "STRIDE = Spoofing, Tampering, Repudiation, Info disclosure, DoS, EoP",
+    "User story = Som <roll> vill jag <behov> så att <nytta>",
+    "DoD = teamets generiska 'klart', acceptans = story-specifikt",
+    "Nuläge/SWOT → gemensam lägesbild",
+    "WBS vs tidsplan → struktur vs kalender",
+    "Risk = sannolikhet × konsekvens (prioritera åtgärder)"
+  ];
+  const host=document.getElementById('drillHost');
+  const items=shuffle(tips).slice(0,30);
+  host.innerHTML = items.map((t,i)=>`<div class="q"><b>${i+1}.</b> ${t}</div>`).join("")+
+                   `<p class="small muted">Säg svaret högt med egna ord (aktiv recall).</p>`;
+}
+
+// ---------- SIMS ----------
+function renderSims(kind){
+  const host=document.getElementById('simHost'); host.innerHTML='';
+  if(kind==='xp'){
+    host.innerHTML = `
+      <div class="q"><h3>XP/Parprogrammering – “sista-minuten-feature”</h3>
+        <p>Kund vill lägga in en ny feature sista dagen. Hur agerar ni?</p>
+        <a href="#" class="toggle">Visa exempel</a>
+        <div class="a"><p>Skydda sprintmålet. Erbjud backlog/refinement. Förklara konsekvens mot kvalitet/tid. Visa respekt + tydlig kommunikation.</p></div>
+      </div>
+      <div class="q"><h3>XP – Buggar inför demo</h3>
+        <p>Ni hittar kritiska buggar kvällen innan demo. Vad gör ni?</p>
+        <a href="#" class="toggle">Visa exempel</a>
+        <div class="a"><p>Små steg, parfix + test, släpp scope som inte är kritiskt. Transparent riskkommunikation.</p></div>
+      </div>`;
+  } else {
+    host.innerHTML = `
+      <div class="q"><h3>STRIDE – inloggning utan MFA</h3>
+        <p>Risk? Motåtgärd?</p>
+        <a href="#" class="toggle">Visa facit</a>
+        <div class="a"><p>Risk: Spoofing/Elevation. Motåtgärd: MFA, stark lösenordspolicy, lockout, audit.</p></div>
+      </div>
+      <div class="q"><h3>STRIDE – okrypterad trafik</h3>
+        <p>Risk? Motåtgärd?</p>
+        <a href="#" class="toggle">Visa facit</a>
+        <div class="a"><p>Risk: Information disclosure. Motåtgärd: TLS, HSTS, säkra cipher suites.</p></div>
+      </div>`;
+  }
+  host.querySelectorAll('.toggle').forEach(t=>{
+    t.onclick=(e)=>{e.preventDefault();const a=t.nextElementSibling;const on=a.style.display==='block';a.style.display=on?'none':'block';t.textContent=on?'Visa facit':'Dölj facit';};
+  });
+}
+
+// ---------- HELPERS ----------
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+// default view
+show('dashboard');
+</script>
+</body>
+</html>
